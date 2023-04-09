@@ -5,9 +5,9 @@ namespace Combat_System
 	public class DamageReceiver : MonoBehaviour
 	{
 
-		protected float MaxHealth;
-		protected float CurrentHealth;
-		protected bool CanTakeDamage;
+		[SerializeField] protected float MaxHealth;
+		[SerializeField] protected float CurrentHealth;
+		[SerializeField] protected bool CanTakeDamage;
 
 		public DamageableState DamageableState { get; private set; }
 
@@ -15,8 +15,8 @@ namespace Combat_System
 
 		public delegate void DamageableHandler();
 
-		public event DamageableHandler OnHealthChanged;
-		public event DamageableHandler OnBeforeDamageReceived;
+		public virtual event DamageableHandler OnHealthChanged;
+		public virtual event DamageableHandler OnBeforeDamageReceived;
 		public event DamageableHandler OnDamageTaken;
 		public event DamageableHandler OnAfterDamageReceived;
 		public event DamageableHandler OnHealthBelowZero;

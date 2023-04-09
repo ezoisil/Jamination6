@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 5590152058094394979}
   - component: {fileID: 4819535804473331871}
   - component: {fileID: 1255930673720664126}
+  - component: {fileID: 8325631846801268254}
   m_Layer: 3
   m_Name: Laser
   m_TagString: Untagged
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _hitCount: 0
-  _maxSpeed: 0.07
+  _maxSpeed: 0.35
   _accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -171,7 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2256a760067c0448f919fa12b3e474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rayDistance: 3.94
+  _rayDistance: 7.27
+  _targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!54 &4819535804473331871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -199,5 +203,22 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.87
+  m_Center: {x: 0.13, y: 0.06, z: 0.26}
+--- !u!114 &8325631846801268254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813274158796737148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620daef028192d0458de8b427e65abd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 0
+  _targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  Damage: 1

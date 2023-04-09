@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64723571e07f7a84a9dfb6d751ec2f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frequency: 1
+  _frequency: 0.47
   _projectilePrefab: {fileID: -5627307090390546819, guid: e68ee3725fc686b4aa79f3dfda4002c8, type: 3}
   _isShooting: 1
   _instantiateAt: {fileID: 8803872344690262324}
