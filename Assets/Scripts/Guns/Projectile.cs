@@ -3,15 +3,14 @@ using UnityEngine;
 
     public class Projectile : CustomUpdateBehaviour
     {
-        [SerializeField] private float _damage;
-        [SerializeField] private int _hitCount;
+        [SerializeField] protected int _hitCount;
         [Header("Movement")]
-        [SerializeField] private float _maxSpeed;
-        [SerializeField] private AnimationCurve _accelerationCurve;
-        [SerializeField] private float _accelerationTime = 0;
+        [SerializeField] protected float _maxSpeed;
+        [SerializeField] protected AnimationCurve _accelerationCurve;
+        [SerializeField] protected float _accelerationTime = 0;
 
-        private float _timer;
-        private void Move(float deltaTime)
+        protected float _timer;
+        protected virtual void Move(float deltaTime)
         {
             _timer += deltaTime;
             float speed = _accelerationCurve.Evaluate(_timer / _accelerationTime) * _maxSpeed;

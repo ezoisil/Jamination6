@@ -11,6 +11,8 @@ namespace Guns
         [SerializeField] private Projectile _projectilePrefab;
         [SerializeField] private bool _isShooting = true;
         [SerializeField] private Transform _instantiateAt;
+        [SerializeField] private int _ammoCount = 20;
+        [SerializeField] private int _gizmoReflectCount = 100;
 
         private float _timer;
 
@@ -20,7 +22,11 @@ namespace Guns
             if(!_isShooting) return;
             _timer += Time.deltaTime;
             if(_timer<_frequency) return;
-            
+            if (_ammoCount <= 0)
+            {
+                _isShooting = false;
+                return;
+            }
             Shoot();
             _timer = 0;
         }
@@ -29,6 +35,7 @@ namespace Guns
         private void Shoot()
         {
             var projectile = Instantiate(_projectilePrefab, transform);
+            _ammoCount--;
             projectile.transform.forward = transform.forward;
             projectile.transform.position = _instantiateAt.position;
         }
@@ -36,12 +43,11 @@ namespace Guns
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
-            DrawRay(transform.position, transform.forward);
             
             List<Vector3> hitPoints = new List<Vector3>();
             hitPoints.Add(transform.position);
             Vector3 nextDir = transform.forward;
-            for (int i = 0; i <= 14; i++)
+            for (int i = 0; i <= _gizmoReflectCount; i++)
             {
                 Ray ray = new Ray(hitPoints[i], nextDir );
                 // Gizmos.DrawRay(hitPoints[i], nextDir*10);
@@ -51,16 +57,10 @@ namespace Guns
                     nextDir = Vector3.Reflect(nextDir, hit.normal);
                 }
             }
-            for (int i = 0; i < 14; i++)
+            for (int i = 0; i < _gizmoReflectCount; i++)
             {
                  Gizmos.DrawLine(hitPoints[i],hitPoints[i+1]);
             }
-        }
-
-        private void DrawRay(Vector3 point, Vector3 dir)
-        {
-          
-     
         }
 
 

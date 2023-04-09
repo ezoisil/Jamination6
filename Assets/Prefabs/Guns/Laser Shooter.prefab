@@ -115,6 +115,7 @@ MonoBehaviour:
   _projectilePrefab: {fileID: -5627307090390546819, guid: e68ee3725fc686b4aa79f3dfda4002c8, type: 3}
   _isShooting: 1
   _instantiateAt: {fileID: 8803872344690262324}
+  _ammoCount: 100
 --- !u!1 &7001039633898851245
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bouncy : MonoBehaviour
+public class BouncyProjectile : Projectile
 {
     [SerializeField] private float _rayDistance = .5f;
     [SerializeField] private LayerMask _targetLayerMask;
 
     private Vector3 _bounceDirection;
+    private Vector3 _bouncePoint;
 
 
     private void OnTriggerEnter(Collider other)
@@ -18,9 +19,16 @@ public class Bouncy : MonoBehaviour
         {
             CalculateBounceDirection();
             transform.forward = _bounceDirection;
+            transform.position = _bouncePoint;
         }
 
     }
+    //
+    // private IEnumerator MoveToTarget()
+    // {
+    //     CalculateBounceDirection();
+    //     transform.position = 
+    // }
 
     private void CalculateBounceDirection()
     {
@@ -30,6 +38,7 @@ public class Bouncy : MonoBehaviour
             var xDir = new Vector3(0, 0, transform.forward.x);
             var flatNormal = new Vector3(hitInfo.normal.x, 0, hitInfo.normal.z);
             _bounceDirection = Vector3.Reflect(transform.forward, flatNormal);
+            _bouncePoint = hitInfo.point;
         }
     }
 
