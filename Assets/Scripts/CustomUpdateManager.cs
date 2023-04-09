@@ -20,10 +20,11 @@ public class CustomUpdateManager : MonoBehaviour
             return;
 
         _timer = 0;
-        foreach (var updateBehaviour in UpdateBehaviours)
+        for (int i = 0; i < UpdateBehaviours.Count; i++)
         {
-            updateBehaviour.OnCustomUpdate(deltaTime);
+            UpdateBehaviours[i].OnCustomUpdate(deltaTime);
         }
+
     }
 
 }
