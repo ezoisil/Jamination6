@@ -132,7 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2747c5a24051a064799d35d8772bd0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
   _hitCount: 0
   _maxSpeed: 0.35
   _accelerationCurve:
@@ -172,6 +171,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c2256a760067c0448f919fa12b3e474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitCount: 0
+  _maxSpeed: 0
+  _accelerationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _accelerationTime: 0
   _rayDistance: 7.27
   _targetLayerMask:
     serializedVersion: 2
@@ -203,7 +211,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.87
+  m_Radius: 1.94
   m_Center: {x: 0.13, y: 0.06, z: 0.26}
 --- !u!114 &8325631846801268254
 MonoBehaviour:

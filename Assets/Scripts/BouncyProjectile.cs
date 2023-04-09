@@ -42,13 +42,13 @@ public class BouncyProjectile : Projectile
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(transform.position, transform.forward * _rayDistance);
-        Gizmos.color = Color.red;
-        CalculateBounceDirection();
-        Gizmos.DrawRay(transform.position, _bounceDirection);
-
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.yellow;
+    //     Gizmos.DrawRay(transform.position, transform.forward * _rayDistance);
+    //     Gizmos.color = Color.red;
+    //     CalculateBounceDirection();
+    //     Gizmos.DrawRay(transform.position, _bounceDirection);
+    //
+    // }
 }
